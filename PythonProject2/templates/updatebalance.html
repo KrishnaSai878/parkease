@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Customer Balance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    .container {
+      background-color: #fff;
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0 16px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #f4b41e;
+      color: #000;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #e0a800;
+    }
+  </style>
+  <script>
+    function updateBalance(event) {
+      event.preventDefault();
+
+      // Retrieve form values
+      var updatedValue = document.getElementById("updated_value").value;
+      var customerNumP = document.getElementById("customer_nump").value;
+
+      // Simulate an update operation (in a real app, you'd send this data to the server)
+      alert("Updating balance by " + updatedValue + " for Customer Number: " + customerNumP);
+
+      // Simulate redirection after update
+      window.location.href = "status_page.html"; // Change to your desired page
+    }
+  </script>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Update Customer Balance</h2>
+    <form onsubmit="updateBalance(event)">
+      <label for="customer_nump">Customer Number:</label>
+      <input type="text" id="customer_nump" name="customer_nump" placeholder="Enter customer number" required>
+
+      <label for="updated_value">Update Value:</label>
+      <input type="number" id="updated_value" name="updated_value" placeholder="Enter amount to add" required>
+
+      <button type="submit">Update Balance</button>
+    </form>
+  </div>
+
+</body>
+</html>

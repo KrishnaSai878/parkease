@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parkeasy License Plate Scanner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Optional Bootstrap CSS for styling -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #000;
+      color: #f4b41e;
+      padding-top: 50px;
+      font-family: Montserrat, sans-serif;
+    }
+    .container {
+      max-width: 600px;
+      background-color: #222;
+      padding: 20px;
+      border-radius: 8px;
+      margin: auto;
+      text-align: center;
+    }
+    h1, h2, p {
+      color: #f4b41e;
+    }
+    .btn-custom {
+      background-color: #f4b41e;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .btn-custom:hover {
+      background-color: #e0a800;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Parkeasy License Plate Scanner</h1>
+    {% if latest_plate %}
+      <h2>Last Detected:</h2>
+      <p>{{ latest_plate }}</p>
+    {% else %}
+      <p>No license plate detected yet.</p>
+    {% endif %}
+    <form action="{{ url_for('scan') }}" method="post">
+      <button type="submit" class="btn-custom" aria-label="Start scanning for license plates">Start Scanning</button>
+    </form>
+  </div>
+</body>
+</html>
